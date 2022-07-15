@@ -1,6 +1,10 @@
 class IntegerToRoman
 
-   def roman 
+    def initialize(num)
+        @num = num
+    end
+
+    def roman 
         {
             M: 1000,
             CM: 900,
@@ -20,14 +24,15 @@ class IntegerToRoman
 
     def convert
         converted = ""
-        num = self
         roman.keys.each do |k|
-            while num >= roman[k] 
-                converted += k  
-                num -= roman[k]
+            while @num >= roman[k] 
+                converted += k.to_s  
+                @num -= roman[k]
             end
         end
-        converted
+        puts converted
     end
 
 end
+
+i = IntegerToRoman.new(1)
