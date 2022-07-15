@@ -1,6 +1,6 @@
-require './integer_to_roman.rb'
+require './integer.rb'
 
-describe IntegerToRoman, '#convert' do
+describe Integer, '#to_roman' do
 
   it 'converts 1' do
     1.to_roman.should eq 'I'
