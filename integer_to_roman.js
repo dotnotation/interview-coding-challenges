@@ -25,10 +25,14 @@ function integerToRoman(num){
 
     for (i in roman){
         // need to compare num to each key
+        // find the largest number that is near the num
         while (num >= roman[i]){
             converted += i
             // assign the key to the converted variable
-
+            // then need to subtract that amount from num
+            num -= roman[i]
         }
     }
+
+    return converted
 }
