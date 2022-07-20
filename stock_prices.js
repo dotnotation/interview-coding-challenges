@@ -5,8 +5,9 @@
 // searching array is O(n)
 
 // What if the price goes down all day? In that case, the best profit will be negative.
+// need to figure out how to stop loop once there is no higher value
 
-const stockPrices = [10, 7, 5, 8, 11, 9] 
+const stockPrices = [10, 7, 5, 8, 11, 9, 3] 
 
 function getMaxProfit(stockPrices){
     // iterate through stockPrices
@@ -15,21 +16,22 @@ function getMaxProfit(stockPrices){
     // two pointers
     if (stockPrices.length < 2) return "Error, you need at least two values to compare."
 
-    let lowest = stockPrices[0]
-    let highest = 0
+    let lowestIndex = 0
+    let highestIndex = 1
 
-    for (i = 0; i < stockPrices.length; i++) {
-        if (stockPrices[i] <= lowest){
-            lowest = stockPrices[i]
-            console.log("lowest", lowest, "highest inside first loop", highest)
-        }
-        if (stockPrices[i] >= highest){
-            highest = stockPrices[i]
-            console.log("highest", highest)
+    for (i = highestIndex; i < stockPrices.length; i++){
+        if (stockPrices[i] >= stockPrices[highestIndex]){
+            highestIndex = i
         }
     }
 
-    return `You should buy at ${lowest} and sell at ${highest}. Your profit will be $${highest - lowest}`
+    for (i = lowestIndex; i < highestIndex; i++){
+        if (stockPrices[i] <= stockPrices[lowestIndex]){
+            lowestIndex = i
+        }
+    }
+
+    return `You should buy at ${stockPrices[lowestIndex]} and sell at ${stockPrices[highestIndex]}. Your profit will be $${stockPrices[highestIndex] - stockPrices[lowestIndex]}`
 }
 
 getMaxProfit(stockPrices)
@@ -54,3 +56,6 @@ function getMaxProfit(stockPrices){
 
     return maxProfit
 }
+
+// Time: O(n), Space: O(1)
+// example of a greedy algorithm
