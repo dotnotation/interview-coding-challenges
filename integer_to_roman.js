@@ -1,6 +1,8 @@
 // takes in a number
 // convert an integer to a roman numeral
 // store a key value pair of roman numeral and integer
+// romanToNumberMapping is a better name for const
+// look at docstrings for comments
 
 function integerToRoman(num){
     const roman = {
