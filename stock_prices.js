@@ -10,10 +10,7 @@
 const stockPrices = [10, 7, 5, 8, 11, 9, 3] 
 
 function getMaxProfit(stockPrices){
-    // iterate through stockPrices
-    // compare the previous value to the next value
-    // find the lowest value and the highest value
-    // two pointers
+    
     if (stockPrices.length < 2) return "Error, you need at least two values to compare."
 
     let lowestIndex = 0
