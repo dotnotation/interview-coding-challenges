@@ -17,7 +17,7 @@ function getMaxProfit(stockPrices){
     if (stockPrices.length < 2) return "Error, you need at least two values to compare."
 
     let lowestIndex = 0
-    let highestIndex = 1
+    let highestIndex = 0
 
     for (i = highestIndex; i < stockPrices.length; i++){
         if (stockPrices[i] >= stockPrices[highestIndex]){
