@@ -14,6 +14,12 @@
 // The total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interviewing in each city.
 
 
-function twoCityScheduling(){
+function twoCityScheduling(costs){
+    let total = 0
 
+    for (let person of costs){
+        person[0] >= person[1] ? total += person[1] : total += person[0]
+    }
+
+    return total
 }
