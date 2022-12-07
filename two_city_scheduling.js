@@ -65,3 +65,6 @@ function twoCityScheduling(costs){
     }
     return total
 }
+
+// Time: O(n log n) the sorting is costly
+// Space: O(1)
