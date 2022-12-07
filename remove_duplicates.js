@@ -39,3 +39,34 @@ function removeDuplicates(s, k){
     return result
 }
 
+// alternate solution
+function removeDuplicates(s, k){
+    let stack = []
+
+    for (let i = 0; i < s.length; i ++){
+        let current = s[i]
+        let peek = stack[stack.length - 1]
+
+        if (stack.length === 0 || peek[0] !== current){
+            // if the stack is empty or the current element is not in the stack
+            stack.push([current, 1])
+            // push that element into the stack with a count of 1
+        } else {
+            // if the char is already in the stack, increase the count by 1
+            peek[1]++
+            // if the count equals k, pop off those char
+            if (peek[1] === k) stack.pop()
+        }
+    }
+
+    let result = ''
+
+    for (let [char, count] of stack){
+        // for the char that remains in stack array, repeat that char count amount of times
+        result += char.repeat(count)
+    }
+
+    return result
+}
+
+// Time and space is 0(n)
