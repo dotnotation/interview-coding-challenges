@@ -11,5 +11,21 @@
 // Finally delete "ddd", get "aa"
 
 function removeDuplicates(s, k){
-    
+    // need a variable to compare values
+    let duplicates = []
+    // iterate through string
+    for (let char of s){
+        // if element is in duplicates k amount of times, pop 
+        // otherwise push
+        if (duplicates.length && duplicates[duplicates.length-1][0] === e){
+            duplicates[duplicates.length - 1][1] += 1
+            if (duplicates[duplicates.length - 1][1] === k){
+                duplicates.pop()
+            } else {
+                duplicates.push([e, 1])
+            }
+        } 
+    }
+
+    return duplicates.join('')
 }
