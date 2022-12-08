@@ -9,4 +9,17 @@ function longestParentheses(s){
     let close = 0
     let maxLength = 0
 
+    for (let i =0; i < s.length; i++){
+        if (s[i] === "("){
+            open++
+        } else if (s[i] === ")"){
+            close++
+        } else if (open === close){
+            maxLength = Math.max(maxLength, open + close)
+        } else {
+            open < close ? maxLength = open * 2 : close * 2
+        }
+    }
+
+    return maxLength
 }
