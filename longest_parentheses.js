@@ -45,3 +45,6 @@ function longestParentheses(s){
 
     return maxLength
 }
+
+// Time: O(n)
+// Space: O(1)
