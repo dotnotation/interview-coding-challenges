@@ -10,18 +10,46 @@ function removeParentheses(s){
     // variable for result
     // variable for counter of parentheses 
     // make sure counter is divisible by two
+    // maybe need to store as a stack or object to compare index?
+    const result = s.split('')
+    const stack = []
+
+    for (let i = 0; i < result.length; i++){
+        if (result[i] === "("){
+            stack.push(i)
+        } else if (result[i] === ")" && stack.length){
+            stack.pop()
+        } else if (result[i] === ")"){
+            result[i] = ""
+        }
+    }
+
+    for (let j = 0; j < stack.length; j++){
+        result[stack[j]] = ""
+    }
+    return result.join('')
+}
+
+// other method in progress
+function removeParentheses(s){
+
     let result = ""
     let counter = 0
 
-    for (let char of s){
+    for (let char of result){
         if (char !== "(" || ")"){
             result.concat(char) 
         } else {
             if (char === "("){
-
+                if (counter === 0){
+                    result.concat(char)
+                }
                 counter++
             } else {
-                if (counter % 2 === 0) result.concat(char)
+                if (counter === 1) {
+                    result.concat(char)
+                    counter = 0
+                }
             }
         }
     }
