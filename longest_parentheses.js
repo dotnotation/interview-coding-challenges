@@ -16,14 +16,31 @@ function longestParentheses(s){
         } else if (s[i] === ")"){
             close++
         } 
+        if (open === close){
+            maxLength = Math.max(maxLength, open + close)
+        } else if (close > open){
+            open = 0
+            close = 0
+        }
     }
+    
+    // start backwards 
+    open = 0
+    close = 0
 
-    if (open === 1 && close === 1){
-        maxLength = 0
-    } else if (open === close){
-        maxLength = Math.max(maxLength, open + close)
-    } else {
-        open < close ? maxLength = open * 2 : maxLength = close * 2
+    for (let i = s.length - 1; i >= 0; i--){
+        if (s[i] === "("){
+            open ++
+        } else if (s[i] === ")"){
+            close ++
+        }
+
+        if (open === close){
+            maxLength = Math.max(maxLength, open + close)
+        } else if (open > close){
+            open = 0
+            close = 0
+        }
     }
 
     return maxLength
