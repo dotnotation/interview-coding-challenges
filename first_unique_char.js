@@ -29,3 +29,35 @@ function firstUniqueChar(s){
 
     return -1
 }
+
+//Time: O(n)
+//Space: O(1) as there is a max of 26 characters that can be stored
+
+// alternate solution 
+var firstUniqChar = function(s) {
+    if(s.length <= 1) return 0;
+    for(let i =0; i< s.length; i++){
+        let c = s[i];
+        if(s.indexOf(c) == i && s.indexOf(c, i+ 1) == -1 ) return i;
+    }
+    return -1;
+};
+
+// alternate solution from Shirin Setayesh
+ function firstUniqueChar(s){
+    let characterCounter = new Map()
+
+    for (let i = 0; i < s.length; i++){
+        characterCounter.set(s[i], (characterCounter.get(s[i]) || 0) + 1)
+    }
+
+    for (let i = 0; i < s.length; i++){
+        let value = characterCounter.get(s[i])
+
+        if (value === 1){
+            return i
+        }
+    }
+
+    return -1
+ }
