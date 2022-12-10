@@ -3,6 +3,8 @@
 // basically alternate the higher and lower values
 // ex. input: num = [3, 5, 2, 1, 6, 4] = [3, 5, 1, 6, 2, 4]
 
+const { SwapCalls } = require("@mui/icons-material")
+
 function wiggleSort(num){
     // iterate through num
     // compare each value and alternate the high and low values
@@ -30,3 +32,27 @@ function wiggleSort(num){
     }
     return num
 }
+
+// solution by Shirin Setayesh
+function wiggleSort(num){
+    for (let i = 0; i < num.length; i++){
+        if (i % 2 == 0){
+            if (num[i] > num[i + 1]){
+                swap(num, i, i + 1)
+            }
+        } else {
+            if (num[i] < num[i + 1]){
+                swap(num, i, i + 1)
+            }
+        }
+    }
+}
+
+function swap(num, a, b){
+    let temp = num[a]
+    num[a] = num[b]
+    num[b] = temp
+}
+
+// Time: O(n)
+// Space: O(1)
