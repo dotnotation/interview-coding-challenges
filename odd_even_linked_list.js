@@ -42,4 +42,9 @@ function oddEvenLinkedList(head){
         current = current.next
     }
 
+    // once we have sorted all elements into their separate lists, we need to connect them
+    oddList.next = evenStart.next
+    evenList.next = null
+
+    return oddStart.next 
 }
