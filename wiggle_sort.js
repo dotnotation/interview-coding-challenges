@@ -9,22 +9,24 @@ function wiggleSort(num){
     // even index is less than adjacent element at odd index
     // odd index is greater than adjacent even index
     // swap like in bubble sort
-    let swap
 
-    for (let i = 0; i < num.length; i++){
-        swap = true
-        if (i % 2 === 0 && i > [i + 1]){
-            let temp = num[i]
-            num[i] = num[i + 1]
-            num[i + 1] = temp
-            swap = false
-        } else if (i % 2 !== 0 && i < [i + 1]){
-            let temp = num[i]
-            num[i] = num[i + 1]
-            num[i + 1] = temp
-            swap = false
+    for (let i = 0; i < num.length - 1; i++){
+        // want num.length - 1 so we don't go out of bounds
+        if (i % 2 === 0){
+            if (num[i] > num[i + 1]){
+                // remember what you are comparing
+                // previously I was comparing index
+                let temp = num[i]
+                num[i] = num[i + 1]
+                num[i + 1] = temp
+            }
+        } else if (i % 2 !== 0){
+            if (num[i] < num[i + 1]){
+                let temp = num[i]
+                num[i] = num[i + 1]
+                num[i + 1] = temp
+            }
         }
-        if (swap) break
     }
     return num
 }
