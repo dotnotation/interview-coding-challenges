@@ -10,5 +10,9 @@
 // needs to be space: 0(1) time: O(n)
 
 function oddEvenLinkedList(head){
+    // maybe approach it like bubble sort?
+    // if index is odd keep it in place
+    // if index is even move it forward
+    // maybe best to put even index at back of array and keep going through til all even are at back
     
 }
