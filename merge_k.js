@@ -14,26 +14,26 @@
 // 1->1->2->3->4->4->5->6
 
 // followed Shirin Setayesh's tutorial
-function mergeList(a, b){
+function mergeList(first, second){
     let dummy = new ListNode(0)
     let current = dummy
     
-    while (a !== null && b !== null){
-        if (a.val < b.val){
+    while (first !== null && second !== null){
+        if (first.val < second.val){
             // sort in ascending order
-            current.next = a
-            a = a.next
-            // moving a element forward
+            current.next = first
+            first = first.next
+            // moving first element forward
         } else {
-            current.next = b
-            b = b.next
-            // moving b element forward
+            current.next = second
+            second = second.next
+            // moving second element forward
         }
         current = current.next
         // move current forward
     }
     // once one of the lists is null, we want to continue with the other list if one list has more values than the other
-    current.next = a || b
+    current.next = first || second
 
     return dummy.next
 }
@@ -51,7 +51,7 @@ function mergeK(lists){
         // this will return the first linked-list
         // do the same for the next list
         let second = lists.shift()
-        let merged = mergeList(a, b)
+        let merged = mergeList(first, second)
         lists.push(merged)
     }
     return lists[0]
