@@ -14,6 +14,9 @@ function pascalTriangle(numRows){
     // then need to access each element in the previous row via j and j - 1
     let result = new Array(numRows)
 
+    if (numRows < 1) return []
+    if (numRows === 1) return [[1]]
+
     for (let i = 0; i < numRows; i++){
         let row = new Array(i + 1)
         row[0] = 1
