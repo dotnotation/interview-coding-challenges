@@ -16,6 +16,18 @@ function pascalTriangle(numRows){
 
     for (let i = 0; i < numRows; i++){
         let row = new Array(i + 1)
+        row[0] = 1
+        row[row.length - 1] = 1
+        
+        for (let j = 1; j < row.length - 1; j++){
+            // start j at 1 because we know the first value is going to be 1
+            // j < row.length - 1 because we already have the last value which is also 1
+            let previous = result[i - 1]
+            row[j] = previous[j] + previous[j - 1]
+            console.log("row", row, "previous", previous)
+        }
+        result[i] = row
     }
     return result
 }
+// Time: O(n^2)
