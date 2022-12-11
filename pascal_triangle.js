@@ -5,5 +5,17 @@
 // Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
 
 function pascalTriangle(numRows){
-    
+    // array of numRows size
+    // row[0] = 1
+    // row[row.length - 1] = 1
+    // the first and last element in each array is always 1
+    // previous array should be the size of i + 1
+    // need to be able to look at previous row which would be i - 1
+    // then need to access each element in the previous row via j and j - 1
+    let result = new Array(numRows)
+
+    for (let i = 0; i < numRows; i++){
+        let row = new Array(i + 1)
+    }
+    return result
 }
