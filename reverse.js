@@ -9,3 +9,7 @@ function reverse(s){
     }
     return result
 }
+
+function reverse(s){
+   return s.split('').reverse().join('')
+}
