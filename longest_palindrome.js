@@ -15,8 +15,6 @@ function longestPalindrome(s){
     // there can be multiple palindromes so need to keep track of longest
     s = s.toLowerCase()
 
-    s = s.toLowerCase()
-
     let result = ""
     let middle = Math.floor(s.length / 2) 
     let left = middle - 1
