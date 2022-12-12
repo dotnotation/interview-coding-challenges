@@ -10,11 +10,25 @@ function longestPalindrome(s){
     // iterate through the string 
     // two pointer method
     // compare left side of string to right side of string 
+    // however I think the start needs to be at the middle and work out from there
     // nested loop? 
+    // there can be multiple palindromes so need to keep track of longest
+    s = s.toLowerCase()
+
     s = s.toLowerCase()
 
     let result = ""
-    let left = s[0]
-    let right = s[s.length - 1]
+    let middle = Math.floor(s.length / 2) 
+    let left = middle - 1
+    let right = middle + 1
+    let temp = [(s[middle])]
+    console.log(temp)
     
+    while (s[left] === s[right]){
+        console.log(left, right)
+        temp = temp.push(s[left])
+        temp = temp.pop(s[right])
+        console.log(temp)
+
+    }
 }
