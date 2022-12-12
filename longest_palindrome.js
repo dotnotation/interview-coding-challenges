@@ -5,7 +5,7 @@
 // ex. "babab" => "bab" or "aba"
 
 function longestPalindrome(s){
-    // since it could be uppercase letters, lowercase everything first
+    // since it could be uppercase letters, lowercase everything first(turns out you can't do this)
     // need a variable of the substring to return
     // iterate through the string 
     // two pointer method
@@ -16,22 +16,30 @@ function longestPalindrome(s){
     // nested loop? 
     // there can be multiple palindromes so need to keep track of longest
     if (s.length < 1 || s === null) return ''
-    
-    s = s.toLowerCase()
 
     let result = ''
     
     for (let i = 0; i < s.length; i++){
         let oddPal = drome(s, i, i)
-        let evenPal = drom(s, i - 1, i)
+        let evenPal = drome(s, i - 1, i)
         
-        if (oddPal > result.length) result = oddPal
-        if (evenPal > result.length) result = evenPal
+        if (oddPal.length > result.length) result = oddPal
+        if (evenPal.length > result.length) result = evenPal
     }
 
    return result 
 }
 
 function drome(s, left, right){
-    
+    let i = 0
+
+    while (s[left - i] && s[left - i] === s[right + i]){
+        i++
+    }
+    i--
+
+    return s.slice(left - i, right + i + 1)
 }
+
+// Time: O(n^2)
+// Space: O(1)
