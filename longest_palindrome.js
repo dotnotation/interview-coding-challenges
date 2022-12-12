@@ -15,24 +15,23 @@ function longestPalindrome(s){
     // need an even and odd length check 
     // nested loop? 
     // there can be multiple palindromes so need to keep track of longest
+    if (s.length < 1 || s === null) return ''
+    
     s = s.toLowerCase()
 
     let result = ''
-    let middle = Math.floor(s.length / 2) 
-    let left = middle - 1
-    let right = middle + 1
-    let temp = [(s[middle])]
-    console.log(temp)
-
-    if (s.length < 1 || s === null) return ''
-
-    s.length % 2 === 0 ? even : odd
     
-    while (s[left] === s[right]){
-        console.log(left, right)
-        temp = temp.push(s[left])
-        temp = temp.pop(s[right])
-        console.log(temp)
-
+    for (let i = 0; i < s.length; i++){
+        let oddPal = drome(s, i, i)
+        let evenPal = drom(s, i - 1, i)
+        
+        if (oddPal > result.length) result = oddPal
+        if (evenPal > result.length) result = evenPal
     }
+
+   return result 
+}
+
+function drome(s, left, right){
+    
 }
