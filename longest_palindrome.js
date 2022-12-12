@@ -11,16 +11,22 @@ function longestPalindrome(s){
     // two pointer method
     // compare left side of string to right side of string 
     // however I think the start needs to be at the middle and work out from there
+    // what is considered the middle if the string is even in length?
+    // need an even and odd length check 
     // nested loop? 
     // there can be multiple palindromes so need to keep track of longest
     s = s.toLowerCase()
 
-    let result = ""
+    let result = ''
     let middle = Math.floor(s.length / 2) 
     let left = middle - 1
     let right = middle + 1
     let temp = [(s[middle])]
     console.log(temp)
+
+    if (s.length < 1 || s === null) return ''
+
+    s.length % 2 === 0 ? even : odd
     
     while (s[left] === s[right]){
         console.log(left, right)
