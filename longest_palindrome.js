@@ -43,3 +43,29 @@ function drome(s, left, right){
 
 // Time: O(n^2)
 // Space: O(1)
+
+
+// solution from Andy Gala
+function longestPalindrome(s){
+    let max = [0, 1]
+    // even one character can be a palindrome
+
+    for (let i = 0; i < s.length; i++){
+        let even = drome(s, i - 1, i)
+        let odd = drome(s, i - 1; i + 1)
+        let current = odd[1] - odd[0] > even[1] - even[0] ? odd : even
+
+        max = max[1] - max[0] > current[1] - current[0] ? max : current
+    }
+    return s.slice(max[0], max[1])
+}
+
+function drome(s, left, right){
+    while (left >= 0 && right < s.length){
+        if (s[left] !== s[right]) break
+        left --
+        right ++
+    }
+
+    return [left + 1, right]
+}
