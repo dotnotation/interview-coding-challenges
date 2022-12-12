@@ -13,3 +13,13 @@ function reverse(s){
 function reverse(s){
    return s.split('').reverse().join('')
 }
+
+function reverse(s){
+    let result = []
+
+    for (var i = s.length - 1; j = 0; i >= 0; i--; j++){
+        result[j] = s[i]
+    }
+
+    return result.join('')
+}
